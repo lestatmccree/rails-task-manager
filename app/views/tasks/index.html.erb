@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>TASKS</h1>
+  <ol>
+    <% @tasks.each do |t| %>
+    <li>
+      <h2><%= link_to t.title, task_path(t)%></h2>
+      <p><%= link_to "edit", edit_task_path(t) %></p>
+      <p><%= link_to "delete", task_path(t),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%></p>
+    </li>
+    <% end %>
+  </ol>
+
+  <p><%= link_to "create", new_task_path, class: 'btn btn-primary' %></p>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Things to explain:
+1. How to create the link to the form when you want to create the task
+2. How does form_for link to the controller methods (and which ones, where)
+3. Strong params - and bit in the slides where it says malicious user can change url
+4. White listing the params with require and permit
+-->
+
+
+
